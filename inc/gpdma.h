@@ -2,7 +2,7 @@
  * Project     : LPC4088FET208
  * Author      :
  * Version     :
- * Copyright   : $(ISAT)
+ * Copyright   :
  * Description : GPDMA definition
  **********************************************************************************************************/
 
@@ -21,19 +21,19 @@
 #define MASKPORT1							0x3E7FE713          					//MAsk for Port1 Pins
 #define DMA_SIZE							0x01									//DMA transfersize
 #define c_Diff_RAM							(unsigned int *)0x10007000
-#define c_Diff_RAM_END						(unsigned int *)0x1000AFFF
-#define M2M									0x00
-#define M2P									0x01
-#define P2M									0x02
-#define P2P									0x03
+#define c_Diff_RAM_END							(unsigned int *)0x1000AFFF
+#define M2M								0x00
+#define M2P								0x01
+#define P2M								0x02
+#define P2P								0x03
 
 
 volatile uint32_t DMATCCount = 0;
 volatile uint32_t DMAErrCount = 0;
 volatile uint32_t DMA0Done = 0;
 volatile uint32_t DMA1Done = 0;
-unsigned int volatile *port0 = (unsigned int *) SRAMBANK0;					// *port = value;  //write to port
-unsigned int volatile *port1 = (unsigned int *) SRAMBANK1;					// value = *port;  //read from port
+unsigned int volatile *port0 = (unsigned int *) SRAMBANK0;				// *port = value;  //write to port
+unsigned int volatile *port1 = (unsigned int *) SRAMBANK1;				// value = *port;  //read from port
 unsigned int volatile *v_Diff_RAM = (unsigned int *) c_Diff_RAM;			// value = *port;  //read from port
 
 
@@ -146,29 +146,5 @@ public:
 
 // !class GPDMA
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif /* !GPDMA_H_ */
