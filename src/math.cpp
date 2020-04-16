@@ -7,9 +7,9 @@
  * Description : Math Functions
  **********************************************************************************************************/
 
-#include "mathSelf.h"
+#include "math.h"
 
-void sinc(double start, double stop, double schrittweite){
+void sinc(double start, double stop, double range){
 	int temp, i;
 	double t[temp];
 	//double T = 1;
@@ -20,14 +20,14 @@ void sinc(double start, double stop, double schrittweite){
 		start = start * -1;
 		if(stop < 0){
 			stop = stop * -1;
-			temp = (start + stop)/schrittweite;
+			temp = (start + stop)/range;
 		}
 		else{
-			temp = (start + stop)/schrittweite;
+			temp = (start + stop)/range;
 		}
 	}
 	else{
-		temp = (start + stop)/schrittweite;
+		temp = (start + stop)/range;
 	}
 
 	if(negStartPos == true){
@@ -35,7 +35,7 @@ void sinc(double start, double stop, double schrittweite){
 	}
 	for (i = 0; i <= temp; i++){
 		t[i] = start;
-		start = start + schrittweite;
+		start = start + range;
 	}
 
 	double x_t[temp];
