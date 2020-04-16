@@ -1,12 +1,13 @@
-/*
- * mathISAT.h
- *
- *  Created on: Apr 3, 2020
- *      Author: Tim Krebs
- */
+/**********************************************************************************************************
+ * Project     : LPC4088FET208
+ * Author      :
+ * Version     :
+ * Copyright   :
+ * Description : Math definition
+ **********************************************************************************************************/
 
-#ifndef MATHISAT_H_
-#define MATHISAT_H_
+#ifndef MATH_H_
+#define MATH_H_
 
 #include "arm_math.h"
 
@@ -35,7 +36,14 @@
 void arm_correlate_f32(float32_t * pSrcA, uint32_t srcALen, float32_t * pSrcB, uint32_t srcBLen, float32_t * pDst);
 
 
+/**
+* @brief floating-point sinc-function.
+* @param[in] start - input value of the array.
+* @param[in] stop - input value of the array.
+* @param[in] range - step range of the array. 
 
-void sinc(double start, double stop, double schrittweite);
+* @return none.
+*/
+void sinc(double start, double stop, double range);
 
-#endif /* MATHISAT_H_ */
+#endif /* MATH_H_ */
