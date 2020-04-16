@@ -2,8 +2,8 @@
  * Project     : LPC4088FET208
  * Author      :
  * Version     :
- * Copyright   : $(ISAT)
- * Description : uart definition
+ * Copyright   : 
+ * Description : UART definition
  **********************************************************************************************************/
 
 #ifndef UART_H_
@@ -11,13 +11,13 @@
 
 #include "LPC407x_8x_177x_8x.h"
 
-#define RDR        							(1 << 0)	    //Line status: Receive data ready
-#define THRE			       				(1 << 5)		//Transmit holding register
-#define UART_RBR_MASKBIT    				(0xFF)		    // UART Received Buffer mask bit (8 bits)
-#define LINE_FEED   						0x0A
-#define CARRIAGE_RETURN 					0x0D
-#define ENTER       						CARRIAGE_RETURN
-#define ESC									0x1B
+#define RDR        							(1 << 0)	    	//Line status: Receive data ready
+#define THRE			       					(1 << 5)		//Transmit holding register
+#define UART_RBR_MASKBIT    						(0xFF)		    	// UART Received Buffer mask bit (8 bits)
+#define LINE_FEED   							0x0A
+#define CARRIAGE_RETURN 						0x0D
+#define ENTER       							CARRIAGE_RETURN
+#define ESC								0x1B
 
 /******************************************************************************
  * Baudrate Calculation: User Manual S.508
@@ -44,20 +44,20 @@ public:
 	inline void UART3_Init(){
 		LPC_SC->PCONP |= (1 << 25);								// Enable Power & CLock for UART3
 		LPC_IOCON->P0_25 = (0x03 << 0)							// UART3 TX	p[0][25]
-					  |(0x01 << 7);								// Digital Mode
+					  |(0x01 << 7);						// Digital Mode
 		LPC_IOCON->P0_26 = (0x03 << 0)  						// UART3 RX	p[0][26]
-					  |(0x01 << 7);								// Digital Mode
+					  |(0x01 << 7);						// Digital Mode
 		LPC_UART3->LCR = (0x03 << 0)							// Word Length: 8 Bit
-						 |(0X00 << 2)							// Stop Bit: 1 Bit
-						 |(0X00 << 3)							// Parity Enable: disabled
-						 |(0X01 << 7);							// Divisor Latch: enabled
-		LPC_UART3->DLL = 65;									// Divisor Latch: 65 for 115200 Baud 20:9600
-		LPC_UART3->DLM = 0;										// Divisor Latch: 0 for 115200 Baud  3:9600
+						 |(0X00 << 2)					// Stop Bit: 1 Bit
+						 |(0X00 << 3)					// Parity Enable: disabled
+						 |(0X01 << 7);					// Divisor Latch: enabled
+		LPC_UART3->DLL = 65;								// Divisor Latch: 65 for 115200 Baud 20:9600
+		LPC_UART3->DLM = 0;								// Divisor Latch: 0 for 115200 Baud  3:9600
 		LPC_UART3->FCR = (0x01 << 0)							// FIFO enable: enabled
-					|(0x01 << 1)								// RX FIFO reset: enabled
-					|(0x01 << 2);								// TX FIFO reset: enabled
+					|(0x01 << 1)						// RX FIFO reset: enabled
+					|(0x01 << 2);						// TX FIFO reset: enabled
 		LPC_UART3->FDR = (0x00 << 0)							// Baudrate prescaler Value: DIVADDL = 0
-					|(0x01 << 4);								// Baudrate prescaler Value: MULVAL = 1
+					|(0x01 << 4);						// Baudrate prescaler Value: MULVAL = 1
 		LPC_UART3->LCR &= ~(0x01 << 7);							// disable to lock Baud - without this no UART communication
 	}
 
@@ -67,7 +67,7 @@ public:
 	\note
 	******************************************************************************/
 	inline uint32_t status(LPC_UART_TypeDef *uart){
-			return uart->LSR;									//returns if UART is busy or not
+			return uart->LSR;							//returns if UART is busy or not
 	}
 
 	/******************************************************************************
