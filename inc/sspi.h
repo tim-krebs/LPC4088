@@ -2,7 +2,7 @@
  * Project     : LPC4088FET208
  * Author      :
  * Version     :
- * Copyright   : $(ISAT)
+ * Copyright   : 
  * Description : SSPI definition
  **********************************************************************************************************/
 
@@ -20,15 +20,15 @@ extern "C" {
 #endif
 
 
-#define SCK_Freq										40000000
-#define SBIT_CPHA										3
-#define SBIT_CPOL										4
-#define SBIT_MSTR										5
-#define SBIT_LSBF										6
-#define SBIT_SPIE										7
-#define SBIT_SPIF										7
-#define SSP_EN      									((uint32_t) (1 << 1))
-#define SSP_DIS											((uint32_t) (0 << 1))
+#define SCK_Freq								40000000
+#define SBIT_CPHA								3
+#define SBIT_CPOL								4
+#define SBIT_MSTR								5
+#define SBIT_LSBF								6
+#define SBIT_SPIE								7
+#define SBIT_SPIF								7
+#define SSP_EN      								((uint32_t) (1 << 1))
+#define SSP_DIS									((uint32_t) (0 << 1))
 #define SSP_DR_BITMASK(n)   							((n) & 0xFFFF)
 #define SSP_CR0_SCR(n)      							((uint32_t) ((n & 0xFF) << 8))
 #define SSP_CR1_BITMASK     							((uint32_t) (0x0F))
@@ -36,26 +36,26 @@ extern "C" {
 
 
 typedef struct{										// SSPn Structure
-	__IO uint32_t CR0;									// Control Register 0. Selects the serial clock rate, bus type, and data size.
-	__IO uint32_t CR1;									// Control Register 1. Selects master/slave and other modes.
-	__IO uint32_t DR;									// Data Register. Writes fill the transmit FIFO, and reads empty the receive FIFO.
-	__I  uint32_t SR;									// Status Register
-	__IO uint32_t CPSR;									// Clock Prescale Register
-	__IO uint32_t IMSC;									// Interrupt Mask Set and Clear Register
-	__I  uint32_t RIS;									// Raw Interrupt Status Register
-	__I  uint32_t MIS;									// Masked Interrupt Status Register
-	__O  uint32_t ICR;									// SSPICR Interrupt Clear Register
+	__IO uint32_t CR0;								// Control Register 0. Selects the serial clock rate, bus type, and data size.
+	__IO uint32_t CR1;								// Control Register 1. Selects master/slave and other modes.
+	__IO uint32_t DR;								// Data Register. Writes fill the transmit FIFO, and reads empty the receive FIFO.
+	__I  uint32_t SR;								// Status Register
+	__IO uint32_t CPSR;								// Clock Prescale Register
+	__IO uint32_t IMSC;								// Interrupt Mask Set and Clear Register
+	__I  uint32_t RIS;								// Raw Interrupt Status Register
+	__I  uint32_t MIS;								// Masked Interrupt Status Register
+	__O  uint32_t ICR;								// SSPICR Interrupt Clear Register
 	__IO uint32_t DMACR;								// SSPn DMA control register
 } SSP_T;
 
 
 typedef enum BITS {
-	BITS_4 = (3u << 0),									// 4 bits/frame
-	BITS_5 = (4u << 0),									// 5 bits/frame
+	BITS_4 = (3u << 0),								// 4 bits/frame
+	BITS_5 = (4u << 0),								// 5 bits/frame
 	BITS_6 = (5u << 0),							    	// 6 bits/frame
-	BITS_7 = (6u << 0),									// 7 bits/frame
-	BITS_8 = (7u << 0),									// 8 bits/frame
-	BITS_9 = (8u << 0),									// 9 bits/frame
+	BITS_7 = (6u << 0),								// 7 bits/frame
+	BITS_8 = (7u << 0),								// 8 bits/frame
+	BITS_9 = (8u << 0),								// 9 bits/frame
 	BITS_10 = (9u << 0),								// 10 bits/frame
 	BITS_11 = (10u << 0),								// 11 bits/frame
 	BITS_12 = (11u << 0),								// 12 bits/frame
@@ -68,21 +68,21 @@ typedef enum BITS {
 
 typedef enum FRAME_FORMAT {
 	FRAMEFORMAT_SPI = (0 << 4),							// Frame format: SPI
-	FRAME_FORMAT_TI = (1u << 4),						// Frame format: TI SSI
-	FRAMEFORMAT_MICROWIRE = (2u << 4),					// Frame format: Microwire
+	FRAME_FORMAT_TI = (1u << 4),							// Frame format: TI SSI
+	FRAMEFORMAT_MICROWIRE = (2u << 4),						// Frame format: Microwire
 } FRAME_FORMAT_T;
 
 
 typedef enum CLOCK_FORMAT {
-	CLOCK_CPHA0_CPOL0 = (0 << 6),						// CPHA = 0, CPOL = 0
-	CLOCK_CPHA0_CPOL1 = (1u << 6),						// CPHA = 0, CPOL = 1
-	CLOCK_CPHA1_CPOL0 = (2u << 6),						// CPHA = 1, CPOL = 0
-	CLOCK_CPHA1_CPOL1 = (3u << 6),						// CPHA = 1, CPOL = 1
+	CLOCK_CPHA0_CPOL0 = (0 << 6),							// CPHA = 0, CPOL = 0
+	CLOCK_CPHA0_CPOL1 = (1u << 6),							// CPHA = 0, CPOL = 1
+	CLOCK_CPHA1_CPOL0 = (2u << 6),							// CPHA = 1, CPOL = 0
+	CLOCK_CPHA1_CPOL1 = (3u << 6),							// CPHA = 1, CPOL = 1
 } CLOCK_MODE_T;
 
 
 typedef struct SSPI_ConfigFormat {
-	BITS_T bits;										// Format config: bits/frame
+	BITS_T bits;									// Format config: bits/frame
 	CLOCK_MODE_T clockMode;								// Format config: clock phase/polarity
 	FRAME_FORMAT_T frameFormat;							// Format config: SPI/TI/Microwire
 } SSPI_ConfigFormat;
