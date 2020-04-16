@@ -1,11 +1,13 @@
-/*
- * mathISAT.cpp
- *
- *  Created on: Apr 3, 2020
- *      Author: Tim Krebs
- */
 
-#include "mathISAT.h"
+/**********************************************************************************************************
+ * Project     : LPC4088FET208
+ * Author      :
+ * Version     :
+ * Copyright   :
+ * Description : Math Functions
+ **********************************************************************************************************/
+
+#include "mathSelf.h"
 
 void sinc(double start, double stop, double schrittweite){
 	int temp, i;
