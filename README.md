@@ -9,3 +9,8 @@ This repository includes:
 - Timer
 - SSPI
 - I2C
+
+
+under review and test for full functionality:
+- DAC (coming soon) 
+- SPIFI (coming soon)
